@@ -1,23 +1,14 @@
 Source: command-not-found
 Section: admin
 Priority: optional
-Maintainer: Michael Vogt <michael.vogt@ubuntu.com>
-XSBC-Original-Maintainer: Zygmunt Krynicki <zkrynicki@gmail.com>
-Build-Depends: debhelper (>= 5.0.38), python, python-dev, python-central (>= 0.5.6), devscripts, intltool, python-apt (>= 0.6.12), python-gdbm
-Standards-Version: 3.7.2
-XS-Python-Version: all
-XS-Vcs-Bzr: http://launchpad.net/~ubuntu-core-dev/command-not-found/ubuntu
+Maintainer: Julian Andres Klode <jak@debian.org>
+Build-Depends: debhelper (>= 7.0.50), dh-python, python
+X-Python-Version: >= 2.5
+Standards-Version: 3.8.3
 
 Package: command-not-found
 Architecture: all
-Depends: ${python:Depends}, python-apt, command-not-found-data, python-gdbm, lsb-release
-XB-Python-Version: ${python:Versions}
+Depends: ${python:Depends}, apt-file (>= 3.0~exp1~), python-gdbm, lsb-release
 Description: Suggest installation of packages in interactive bash sessions
- This package will install a handler for command_not_found that looks up
+ This package will install handler for command_not_found that looks up
  programs not currently installed but available from the repositories.
-
-Package: command-not-found-data
-Architecture: any
-Description: Set of data files for command-not-found.
- This package provides the required data used by the command-not-found 
- application.
