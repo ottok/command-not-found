@@ -1,28 +1,19 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 from distutils.core import setup
+from DistUtilsExtra.command import (build_extra, build_i18n)
 import glob
-import os
 
-GETTEXT_NAME="command-not-found"
-I18NFILES = []
-for filepath in glob.glob("po/mo/*/LC_MESSAGES/*.mo"):
-    lang = filepath[len("po/mo/"):]
-    targetpath = os.path.dirname(os.path.join("share/locale",lang))
-    I18NFILES.append((targetpath, [filepath]))
-
-# HACK: make sure that the mo files are generated and up-to-date
-# os.system("cd po && make update-po")
-
-setup(name='command-not-found',
-        version='0.1',
-        packages=['CommandNotFound'],
-        scripts=['command-not-found'],
-        data_files=[
-        ('share/command-not-found/programs.d', glob.glob("data/programs.d/*")),
-        ('share/command-not-found/', ['data/priority.txt']),  
+setup(
+    name='command-not-found',
+    version='0.3',
+    packages=['CommandNotFound', 'CommandNotFound.db'],
+    scripts=['command-not-found', 'cnf-update-db'],
+    cmdclass={"build": build_extra.build_extra,
+                "build_i18n": build_i18n.build_i18n,
+                },
+    data_files=[
+        ('share/command-not-found/', glob.glob("data/*.db")),
         ('../etc', ['bash_command_not_found', 'zsh_command_not_found']),
-        ]+I18NFILES,
-        )
-
-
+        ('../etc/apt/apt.conf.d', ['data/50command-not-found']),
+    ])

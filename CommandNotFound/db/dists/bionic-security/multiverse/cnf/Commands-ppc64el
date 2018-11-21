@@ -1,0 +1,5 @@
+suite: bionic-security
+component: multiverse
+arch: ppc64el
+
+

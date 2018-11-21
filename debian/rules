@@ -1,40 +1,19 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
 
-get-orig-source:
-	uscan -d
+%:
+	dh $@ --with=python3 --buildsystem=pybuild
 
-
-build:
-
-clean:
-	dh_testdir
-	dh_testroot
-	find -name '*.pyc' -delete
-	dh_clean
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_prep
+override_dh_install: 
 	dh_install
-	dh_link
+ifneq (,$(filter command-not-found,$(shell dh_listpackages)))
+	# Move our script from /usr/bin to /usr/lib (not meant for end-users)
+	install -d $(CURDIR)/debian/command-not-found/usr/lib
+	mv $(CURDIR)/debian/command-not-found/usr/bin/command-not-found $(CURDIR)/debian/command-not-found/usr/lib/command-not-found
+	mv $(CURDIR)/debian/command-not-found/usr/bin/cnf-update-db $(CURDIR)/debian/command-not-found/usr/lib/cnf-update-db
+	rmdir --ignore-fail-on-non-empty $(CURDIR)/debian/command-not-found/usr/bin
+	# Get rid of bash integration script, got merged to bash
+	rm $(CURDIR)/debian/command-not-found/etc/bash_command_not_found
+endif
 
-# Build architecture-independent files here.
-binary-indep: build install
-	dh_testdir
-	dh_testroot
-	dh_installdirs var/cache/command-not-found/
-	dh_installdocs README
-	dh_installman debian/update-command-not-found.8
-	dh_installchangelogs
-	dh_python2
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install get-orig-source
+override_dh_auto_test:
+	python3 -m unittest discover

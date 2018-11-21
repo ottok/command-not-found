@@ -1,0 +1,45 @@
+suite: bionic-updates
+component: main
+arch: arm64
+
+
+name: apache2
+version: 2.4.29-1ubuntu4.1
+commands: a2disconf,a2dismod,a2dissite,a2enconf,a2enmod,a2ensite,a2query,apache2ctl,apachectl
+
+name: apache2-bin
+version: 2.4.29-1ubuntu4.1
+commands: apache2
+
+name: apache2-dev
+version: 2.4.29-1ubuntu4.1
+commands: apxs,apxs2,dh_apache2
+
+name: apache2-utils
+version: 2.4.29-1ubuntu4.1
+commands: ab,check_forensic,checkgid,fcgistarter,htcacheclean,htdbm,htdigest,htpasswd,httxt2dbm,logresolve,rotatelogs,split-logfile
+
+name: ghostscript
+version: 9.22~dfsg+1-0ubuntu1.1
+commands: dvipdf,eps2eps,ghostscript,gs,gsbj,gsdj,gsdj500,gslj,gslp,gsnd,pdf2dsc,pdf2ps,pf2afm,pfbtopfa,pphs,printafm,ps2ascii,ps2epsi,ps2pdf,ps2pdf12,ps2pdf13,ps2pdf14,ps2pdfwr,ps2ps,ps2ps2,ps2txt,update-gsfontmap
+
+name: libmysqlclient-dev
+version: 5.7.22-0ubuntu18.04.1
+commands: mysql_config
+
+name: mysql-client-5.7
+version: 5.7.22-0ubuntu18.04.1
+commands: myisam_ftdump,mysql_config_editor,mysqladmin,mysqlanalyze,mysqldump,mysqldumpslow,mysqlimport,mysqloptimize,mysqlpump,mysqlrepair,mysqlreport,mysqlshow,mysqlslap
+
+name: mysql-client-core-5.7
+version: 5.7.22-0ubuntu18.04.1
+commands: mysql,mysql_embedded,mysqlcheck
+
+name: mysql-server-5.7
+version: 5.7.22-0ubuntu18.04.1
+commands: myisamchk,myisamlog,myisampack,mysql_plugin,mysql_secure_installation,mysql_ssl_rsa_setup,mysql_tzinfo_to_sql,mysqlbinlog,mysqld_multi,mysqld_safe,perror,replace,resolveip
+
+name: mysql-server-core-5.7
+version: 5.7.22-0ubuntu18.04.1
+commands: innochecksum,my_print_defaults,mysql_install_db,mysql_upgrade,mysqld
+

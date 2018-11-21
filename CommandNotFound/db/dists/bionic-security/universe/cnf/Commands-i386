@@ -1,0 +1,13 @@
+suite: bionic-security
+component: universe
+arch: i386
+
+
+name: mysql-testsuite-5.7
+version: 5.7.22-0ubuntu18.04.1
+commands: mysql_client_test,mysql_client_test_embedded,mysqltest,mysqltest_embedded
+
+name: wavpack
+version: 5.1.0-2ubuntu1.1
+commands: wavpack,wvgain,wvtag,wvunpack
+
