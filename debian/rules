@@ -5,6 +5,9 @@ export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/command-not-found/ --instal
 %:
 	dh $@ --with=python3 --buildsystem=pybuild
 
+override_dh_auto_install:
+	dh_auto_install
+	find debian/command-not-found -name __pycache__ | xargs rm -r
 
 override_dh_auto_test:
 	python3 -m unittest discover
