@@ -1,0 +1,5 @@
+suite: bionic-backports
+component: main
+arch: ppc64el
+
+

@@ -1,2 +1,2 @@
 usr/bin
-usr/share/command-not-found/data
+var/lib/command-not-found

@@ -1,0 +1,5 @@
+suite: bionic-proposed
+component: restricted
+arch: amd64
+
+

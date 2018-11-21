@@ -31,11 +31,6 @@ case "$1" in
     ;;
 esac
 
-# remove old left-over file
-if dpkg --compare-versions "$2" lt-nl "0.2.35ubuntu3"; then
-    rm -f /etc/bash_command_not_found
-fi
-
 #DEBHELPER#
 
 exit 0
