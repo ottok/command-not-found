@@ -15,21 +15,11 @@ X-Python3-Version: >= 3.2
 
 Package: command-not-found
 Architecture: all
-Depends: apt-file (>= 3.0~exp1~), python3-commandnotfound (= ${binary:Version}), ${misc:Depends}
+Depends: apt-file (>= 3.0~exp1~),
+         lsb-release,
+         python3-apt,
+         ${misc:Depends}
 Suggests: snapd
 Description: Suggest installation of packages in interactive bash sessions
  This package will install handler for command_not_found that looks up
  programs not currently installed but available from the repositories.
-
-Package: python3-commandnotfound
-Section: python
-Architecture: all
-Replaces: command-not-found (<< 0.3ubuntu7)
-Depends: command-not-found-data (= ${binary:Version}),
-         lsb-release,
-         python3-apt,
-         python3-gdbm,
-         ${misc:Depends},
-         ${python3:Depends}
-Description: Python 3 bindings for command-not-found.
- This package will install the Python 3 library for command_not_found tool.
