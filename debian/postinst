@@ -16,11 +16,11 @@ set -e
 
 case "$1" in
     configure)
-	if [ -z "$(find /var/cache/command-not-found -mindepth 1)" ]; then
+	if [ -z "$(find /var/lib/command-not-found -mindepth 1)" ]; then
 		echo "You need to run 'update-command-not-found' as root to update the cache."
 	elif dpkg --compare-versions $2 lt 18.04.5~; then
 		echo "Your cache files have been deleted for the upgrade."
-		rm /var/cache/command-not-found/*.db
+		rm -r /var/cache/command-not-found
 	fi
     ;;
 
@@ -34,3 +34,5 @@ case "$1" in
 esac
 
 #DEBHELPER#
+
+exit 0

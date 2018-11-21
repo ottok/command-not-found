@@ -22,5 +22,5 @@ Depends: apt-file (>= 3.0~exp1~),
          ${misc:Depends}
 Suggests: snapd
 Description: Suggest installation of packages in interactive bash sessions
- This package will install handler for command_not_found that looks up
+ This package will install a handler for command_not_found that looks up
  programs not currently installed but available from the repositories.
