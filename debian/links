@@ -1,4 +1,4 @@
 usr/share/command-not-found/command-not-found usr/lib/command-not-found
 usr/share/command-not-found/command-not-found usr/bin/command-not-found
-usr/share/command-not-found/cnf-update-db usr/bin/update-command-not-found
+usr/share/command-not-found/cnf-update-db usr/sbin/update-command-not-found
 usr/share/command-not-found/cnf-update-db usr/lib/cnf-update-db
