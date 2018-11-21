@@ -1,6 +1,7 @@
 Source: command-not-found
 Section: admin
 Priority: optional
+Maintainer: Julian Andres Klode <jak@debian.org>
 Build-Depends: debhelper (>= 8),
                devscripts,
                dh-python,
