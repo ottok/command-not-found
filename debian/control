@@ -13,7 +13,6 @@ Build-Depends: debhelper (>= 8),
 Standards-Version: 4.2.1
 Vcs-Browser: https://salsa.debian.org/jak/command-not-found
 Vcs-Git: https://salsa.debian.org/jak/command-not-found.git
-X-Python3-Version: >= 3.2
 
 Package: command-not-found
 Architecture: all
