@@ -19,7 +19,7 @@ Architecture: all
 Depends: apt-file (>= 3.0~exp1~),
          lsb-release,
          python3-apt,
-         ${misc:Depends}
+         ${misc:Depends},
          ${python3:Depends}
 Suggests: snapd
 Description: Suggest installation of packages in interactive bash sessions
