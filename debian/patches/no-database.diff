@@ -3,12 +3,12 @@ Date: Wed, 21 Nov 2018 08:27:04 +0100
 Subject: no-database
 
 ---
- CommandNotFound/CommandNotFound.py | 12 ++++++++++--
+ CommandNotFound/CommandNotFound.py | 13 +++++++++++--
  command-not-found                  |  5 ++++-
- 2 files changed, 14 insertions(+), 3 deletions(-)
+ 2 files changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/CommandNotFound/CommandNotFound.py b/CommandNotFound/CommandNotFound.py
-index aa62eeb..5a0e061 100644
+index f17567f..574532e 100644
 --- a/CommandNotFound/CommandNotFound.py
 +++ b/CommandNotFound/CommandNotFound.py
 @@ -53,7 +53,11 @@ def user_can_sudo():
@@ -24,12 +24,13 @@ index aa62eeb..5a0e061 100644
  
  class CommandNotFound(object):
  
-@@ -74,13 +78,17 @@ class CommandNotFound(object):
+@@ -74,13 +78,18 @@ class CommandNotFound(object):
  
      output_fd = sys.stderr
  
--    def __init__(self, data_dir="/var/cache/command-not-found"):
-+    def __init__(self, data_dir="/var/cache/command-not-found", do_raise=False):
+-    def __init__(self, data_dir="/usr/share/command-not-found"):
++
++    def __init__(self, data_dir="/usr/share/command-not-found", do_raise=False):
          self.sources_list = self._getSourcesList()
          # a new style DB means we can skip loading the old legacy static DB
          if os.path.exists(dbpath):
@@ -44,7 +45,7 @@ index aa62eeb..5a0e061 100644
          self.euid = posix.geteuid()
  
 diff --git a/command-not-found b/command-not-found
-index 7db8599..e0876f7 100755
+index 3beca38..2604950 100755
 --- a/command-not-found
 +++ b/command-not-found
 @@ -86,7 +86,10 @@ def main():

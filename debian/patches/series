@@ -1,4 +1,3 @@
-adjust-paths.diff
 bts.diff
 no-database.diff
-0004-CommandNotFound.db.creator-Add-support-for-Contents-.patch
+0003-cnf-update-db-Add-support-for-Contents-files.patch
