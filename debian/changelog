@@ -1,3 +1,13 @@
+command-not-found (18.04.5-1) unstable; urgency=medium
+
+  * Merge from Ubuntu (Closes: #914255, #649289, #820534, #578523);
+    remaining changes:
+    - Install library to private location
+    - Install scripts to /usr/bin as well
+    - Use Contents files instead of Commands files
+
+ -- Julian Andres Klode <jak@debian.org>  Wed, 21 Nov 2018 09:32:37 +0100
+
 command-not-found (18.04.5) bionic; urgency=medium
 
   * Ensure /snap/bin is in PATH when checking for commands
