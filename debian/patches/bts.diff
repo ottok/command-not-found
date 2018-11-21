@@ -1,8 +1,18 @@
-  * patches/bts.diff: Point to information on how to report bugs in Debian,
+From: Julian Andres Klode <jak@debian.org>
+Date: Wed, 21 Nov 2018 08:27:04 +0100
+Subject: bts
+
+* patches/bts.diff: Point to information on how to report bugs in Debian,
     and not to Launchpad. Also update the version number.
+---
+ command-not-found | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/command-not-found b/command-not-found
+index 510a29f..7db8599 100755
 --- a/command-not-found
 +++ b/command-not-found
-@@ -6,7 +6,7 @@ from __future__ import absolute_import,
+@@ -6,7 +6,7 @@ from __future__ import absolute_import, print_function
  
  
  __version__ = "0.3"

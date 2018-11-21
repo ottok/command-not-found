@@ -1,3 +1,14 @@
+From: Julian Andres Klode <jak@debian.org>
+Date: Wed, 21 Nov 2018 08:27:04 +0100
+Subject: no-database
+
+---
+ CommandNotFound/CommandNotFound.py | 12 ++++++++++--
+ command-not-found                  |  5 ++++-
+ 2 files changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/CommandNotFound/CommandNotFound.py b/CommandNotFound/CommandNotFound.py
+index aa62eeb..5a0e061 100644
 --- a/CommandNotFound/CommandNotFound.py
 +++ b/CommandNotFound/CommandNotFound.py
 @@ -53,7 +53,11 @@ def user_can_sudo():
@@ -32,6 +43,8 @@
          self.user_can_sudo = user_can_sudo()
          self.euid = posix.geteuid()
  
+diff --git a/command-not-found b/command-not-found
+index 7db8599..e0876f7 100755
 --- a/command-not-found
 +++ b/command-not-found
 @@ -86,7 +86,10 @@ def main():

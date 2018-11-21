@@ -1,15 +1,15 @@
+From: Julian Andres Klode <jak@debian.org>
+Date: Wed, 21 Nov 2018 08:27:04 +0100
+Subject: adjust-paths
+
 Change the path for the databases to /var/cache/command-not-found
---- a/command-not-found
-+++ b/command-not-found
-@@ -76,7 +76,7 @@ def main():
-         version=__version__,
-         usage=_("%prog [options] <command-name>"))
-     parser.add_option('-d', '--data-dir', action='store',
--                      default="/usr/share/command-not-found",
-+                      default="/var/cache/command-not-found",
-                       help=_("use this path to locate data fields"))
-     parser.add_option('--ignore-installed', '--ignore-installed',
-                       action='store_true',  default=False,
+---
+ CommandNotFound/CommandNotFound.py | 2 +-
+ command-not-found                  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CommandNotFound/CommandNotFound.py b/CommandNotFound/CommandNotFound.py
+index f17567f..aa62eeb 100644
 --- a/CommandNotFound/CommandNotFound.py
 +++ b/CommandNotFound/CommandNotFound.py
 @@ -74,7 +74,7 @@ class CommandNotFound(object):
@@ -21,3 +21,16 @@ Change the path for the databases to /var/cache/command-not-found
          self.sources_list = self._getSourcesList()
          # a new style DB means we can skip loading the old legacy static DB
          if os.path.exists(dbpath):
+diff --git a/command-not-found b/command-not-found
+index 6529080..510a29f 100755
+--- a/command-not-found
++++ b/command-not-found
+@@ -76,7 +76,7 @@ def main():
+         version=__version__,
+         usage=_("%prog [options] <command-name>"))
+     parser.add_option('-d', '--data-dir', action='store',
+-                      default="/usr/share/command-not-found",
++                      default="/var/cache/command-not-found",
+                       help=_("use this path to locate data fields"))
+     parser.add_option('--ignore-installed', '--ignore-installed',
+                       action='store_true',  default=False,
