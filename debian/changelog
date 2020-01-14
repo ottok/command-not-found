@@ -151,7 +151,7 @@ command-not-found (0.3ubuntu18.04.0~pre1) bionic; urgency=medium
 
 command-not-found (0.3ubuntu17.10.2) artful; urgency=medium
 
-  * Update scan.data after a new "artful" archive scan 
+  * Update scan.data after a new "artful" archive scan
     (LP: #1739467)
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 20 Dec 2017 19:29:20 +0100
@@ -297,8 +297,8 @@ command-not-found (0.3ubuntu11) trusty; urgency=low
  -- Rolf Leggewie <foss@rolf.leggewie.biz>  Sat, 22 Mar 2014 23:25:21 +0800
 
 command-not-found (0.3ubuntu10) trusty; urgency=medium
-  
-  [ Anthony Wong ] 
+
+  [ Anthony Wong ]
   * Fix locale.Error: unsupported locale setting bug (LP: #1029204)
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 21 Mar 2014 12:04:22 +0000
@@ -423,7 +423,7 @@ command-not-found (0.2.46ubuntu2) precise; urgency=low
 command-not-found (0.2.46ubuntu1) precise; urgency=low
 
   * merged from lp:command-not-found trunk:
-    - add support for automatic install prompt (enable via the 
+    - add support for automatic install prompt (enable via the
       COMMAND_NOT_FOUND_INSTALL_PROMPT environment)
     - fix java recommends (LP: #853688)
     - add --no-failure-msg
@@ -467,7 +467,7 @@ command-not-found (0.2.44.1ubuntu1) oneiric-proposed; urgency=low
 
 command-not-found (0.2.44ubuntu1) oneiric; urgency=low
 
-  * merged lp:~zkrynicki/command-not-found/fix-839609 
+  * merged lp:~zkrynicki/command-not-found/fix-839609
     LP: #839609
   * scan.data:
     - updated to current oneiric
@@ -494,7 +494,7 @@ command-not-found (0.2.42ubuntu1) oneiric; urgency=low
 
   [ Michael Vogt ]
   * updated data to current oneiric
-  
+
   [ Zygmunt Krynicki ]
   * merged lp:~fahlgren/command-not-found/speedup thanks to
     Daniel Fahlgren
@@ -525,12 +525,12 @@ command-not-found (0.2.41ubuntu3) oneiric; urgency=low
 
   [ Steve Langasek ]
   * Migrate to dh_python2.  LP: #788514.
-  
+
   [ Michael Vogt ]
   * automatically update the scan.data in the pre-build.sh hook
     (thanks to Steve Langasek for this suggestion)
   * updated to oneiric
-  
+
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 10 Jun 2011 08:56:44 +0200
 
 command-not-found (0.2.41ubuntu2) natty; urgency=low
@@ -598,7 +598,7 @@ command-not-found (0.2.40ubuntu15) maverick; urgency=low
 
 command-not-found (0.2.40ubuntu14) maverick; urgency=low
 
-  * scan.data: 
+  * scan.data:
     - updated for maverick beta
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 27 Aug 2010 17:15:58 +0200
@@ -613,14 +613,14 @@ command-not-found (0.2.40ubuntu13) maverick; urgency=low
 
 command-not-found (0.2.40ubuntu12) maverick; urgency=low
 
-  * scan.data: 
+  * scan.data:
     - updated for maverick alpha-3
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 04 Aug 2010 11:59:09 +0200
 
 command-not-found (0.2.40ubuntu11) maverick; urgency=low
 
-  * scan.data: 
+  * scan.data:
     - updated for maverick alpha-2
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 30 Jun 2010 10:13:52 +0200
@@ -629,10 +629,10 @@ command-not-found (0.2.40ubuntu10) maverick; urgency=low
 
   [ Rolf Leggewie ]
   * fix spelling error s/priviledge/privilege/. LP: #574577
-  
+
   [ Michael Vogt ]
-  * scan.data: 
-    - updated for maverick alpha-1 
+  * scan.data:
+    - updated for maverick alpha-1
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 31 May 2010 16:55:04 +0200
 
@@ -767,7 +767,7 @@ command-not-found (0.2.37ubuntu2) karmic; urgency=low
   * scan.data:
     - updated for alpha-3
   * CommandNotFound/CommandNotFound.py:
-    - do not give advice if apt-get is not installed 
+    - do not give advice if apt-get is not installed
       (LP: #394842)
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 20 Jul 2009 13:17:27 +0200
@@ -792,7 +792,7 @@ command-not-found (0.2.36ubuntu1) karmic; urgency=low
     - build with DH_PYCENTRAL=include-links LP: #342003
   * CommandNotFound/util.py:
     - use try gettext if lgettext fails (LP: #282446)
-  * debian/copyright: 
+  * debian/copyright:
     - fix location (LP: #314478)
   * CommandNotFound/CommandNotFound.py:
     - be more robust about missing priority.txt (LP: #359784)
@@ -827,7 +827,7 @@ command-not-found (0.2.34ubuntu3) jaunty; urgency=low
 command-not-found (0.2.34ubuntu2) jaunty; urgency=low
 
   * scan.data:
-    - updated to current jaunty 
+    - updated to current jaunty
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 07 Apr 2009 21:58:51 +0200
 
@@ -860,7 +860,7 @@ command-not-found (0.2.33ubuntu1) jaunty; urgency=low
 
   * debian/rules:
     - update debian/rules to the new python way of installing
-      packages 
+      packages
   * command-not-found:
     - remove "-S" from "#!/usr/bin/python"
 
@@ -871,7 +871,7 @@ command-not-found (0.2.32ubuntu1) jaunty; urgency=low
   [ Steve Langasek ]
   * CommandNotFound/CommandNotFound.py:
     - add support for sorting by components
-  
+
   [ Michael Vogt ]
   * scan.data: updated
 
@@ -967,7 +967,7 @@ command-not-found (0.2.23ubuntu1) intrepid; urgency=low
 command-not-found (0.2.22ubuntu1) intrepid; urgency=low
 
   [ Zygmunt Krynicki ]
-  * Fixed some locale issues and enchanced error reporting 
+  * Fixed some locale issues and enchanced error reporting
 
   [ Michael Vogt ]
   * scan.data:
@@ -998,7 +998,7 @@ command-not-found (0.2.17ubuntu1) hardy; urgency=low
 
 command-not-found (0.2.16ubuntu1) hardy; urgency=low
 
-  * updated to latest hardy 
+  * updated to latest hardy
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 04 Apr 2008 10:36:34 +0200
 
@@ -1007,7 +1007,7 @@ command-not-found (0.2.15ubuntu1) hardy; urgency=low
   [ Kjell Braden ]
    * Don't run command-not-found from the shell scripts when it has been
      removed in the meantime (LP: #194939)
- 
+
   [ Michael Vogt ]
   * CommandNotFound/CommandNotFound.py:
     - do not advise on ".." (LP: # 195090) - thanks to Thomas Perl
@@ -1023,7 +1023,7 @@ command-not-found (0.2.15ubuntu1) hardy; urgency=low
 command-not-found (0.2.14ubuntu1) hardy; urgency=low
 
   * updated data for alpha-6
-  * fixed bug in data extraction code for hardlinks 
+  * fixed bug in data extraction code for hardlinks
     (git-diff and friends was not in the index because of this)
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 04 Mar 2008 17:00:42 +0100
@@ -1049,7 +1049,7 @@ command-not-found (0.2.11ubuntu3) hardy; urgency=low
 
 command-not-found (0.2.11ubuntu2) hardy; urgency=low
 
-  * python-gdbm added to Depends, not just b-d 
+  * python-gdbm added to Depends, not just b-d
 
  -- Rick Clark <rick.clark@ubuntu.com>  Sun, 09 Dec 2007 15:51:19 -0500
 
@@ -1124,9 +1124,9 @@ command-not-found (0.2.4) feisty; urgency=low
   [ Michael Vogt ]
   * remove support for suggestins.d/ dir (not used currently and
     may break stuff)
-  
+
   [ Zygmunt Krynicki ]
-  * Fixed launchpad #95794: warning emitted about not finding group name 
+  * Fixed launchpad #95794: warning emitted about not finding group name
   * data files updated
 
   [ Johan Kiviniemi ]
@@ -1139,7 +1139,7 @@ command-not-found (0.2.4) feisty; urgency=low
 command-not-found (0.2.3) feisty; urgency=low
 
   [Johan Kiviniemi]
-  * zsh_command_not_found, README, setup.py: Added support for zsh. 
+  * zsh_command_not_found, README, setup.py: Added support for zsh.
     (LP#92942, thanks!)
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 16 Mar 2007 23:57:58 +0100
@@ -1147,7 +1147,7 @@ command-not-found (0.2.3) feisty; urgency=low
 command-not-found (0.2.2) feisty; urgency=low
 
   * refreshed database to current feisty
-  * set maintainer field to ubuntu 
+  * set maintainer field to ubuntu
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 16 Mar 2007 19:00:49 +0100
 
@@ -1183,22 +1183,22 @@ command-not-found (0.1.0) edgy; urgency=low
   [Michael Vogt]
   * updated the binary database wit the latest edgy
   * the command-not-found-data is build pre arch now
-  
+
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 12 Sep 2006 19:33:33 +0200
 
 command-not-found (0.0.2) edgy; urgency=low
 
   * return 127 to bash if nothing was found in the database
-  * update the database 
+  * update the database
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 10 Aug 2006 15:05:14 +0200
 
 command-not-found (0.0.1) edgy; urgency=low
 
   * initial release
-  * start of the implementation of 
+  * start of the implementation of
     https://wiki.ubuntu.com/CommandNotFoundMagic
   * contains the current commands on edgy
-  
+
  -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 24 Nov 2005 16:34:54 +0100
