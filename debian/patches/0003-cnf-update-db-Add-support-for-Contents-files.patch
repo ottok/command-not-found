@@ -9,7 +9,7 @@ Subject: cnf-update-db: Add support for Contents files
  3 files changed, 66 insertions(+), 4 deletions(-)
 
 diff --git a/CommandNotFound/db/creator.py b/CommandNotFound/db/creator.py
-index 58ad299..fafa1dc 100755
+index 75d01f1..08564f5 100755
 --- a/CommandNotFound/db/creator.py
 +++ b/CommandNotFound/db/creator.py
 @@ -5,6 +5,7 @@ import json
@@ -20,7 +20,7 @@ index 58ad299..fafa1dc 100755
  import sys
  import time
  
-@@ -123,8 +124,15 @@ class DbCreator:
+@@ -134,8 +135,15 @@ class DbCreator:
          return meta
      def _fill_commands(self, con):
          for f in self.files:
@@ -38,7 +38,7 @@ index 58ad299..fafa1dc 100755
          self.stats["total_time"] = time.time() - self.stats["total_time"]
          logging.info("processed %i packages in %.2fs" % (
              self.stats["total"], self.stats["total_time"]))
-@@ -212,10 +220,63 @@ class DbCreator:
+@@ -223,10 +231,63 @@ class DbCreator:
                          pkg_id = self._insert_package(con, pkgname, version, component, priority)
                  with measure("sql_insert_cmd", self.stats):
                      self._insert_command(con, command, pkg_id)

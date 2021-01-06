@@ -9,7 +9,7 @@ Subject: bts
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/command-not-found b/command-not-found
-index 6529080..3beca38 100755
+index 11e2cf1..b1e3ae6 100755
 --- a/command-not-found
 +++ b/command-not-found
 @@ -6,7 +6,7 @@ from __future__ import absolute_import, print_function
