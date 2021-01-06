@@ -3,18 +3,6 @@
 %:
 	dh $@ --with=python3 --buildsystem=pybuild
 
-override_dh_auto_build:
-	dh_auto_build
-	# strip off version information - this will be outdated anyway
-	# (this entire thing goes away once Commands-* is stored on the
-	#  archive server)
-	find CommandNotFound/db/dists -name "Commands-*" -exec sed -i '/^version:/d' {} \;
-
-	# build the binary database for the current architecture
-	(cd CommandNotFound/db;  \
-	 ./creator.py commands.db ./dists/*/*/*/Commands-*; \
-	  mv commands.db ../../data/)
-
 override_dh_install: 
 	dh_install
 ifneq (,$(filter command-not-found,$(shell dh_listpackages)))

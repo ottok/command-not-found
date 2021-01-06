@@ -8,6 +8,7 @@ import shutil
 import tempfile
 import unittest
 
+import CommandNotFound.CommandNotFound as CommandNotFound_Module
 from CommandNotFound.CommandNotFound import (
     CommandNotFound,
     SqliteDatabase,
@@ -19,119 +20,85 @@ test_specs = [
 test: single snap advise
 snaps: spotify/1.0:x-spotify
 with: x-spotify
-
 Command 'x-spotify' not found, but can be installed with:
-
 sudo snap install spotify
-
 """,
 """
 test: mixed advise, single snap
 debs: aws/1.0:x-aws,other-cmd
 snaps: aws-cli/2.0:x-aws
 with: x-aws
-
 Command 'x-aws' not found, but can be installed with:
-
 sudo snap install aws-cli  # version 2.0, or
 sudo apt  install aws      # version 1.0
-
 See 'snap info aws-cli' for additional versions.
-
 """,
 """
 test: mixed advise, multi-snap
 debs: aws/1.0:x-aws,other-cmd
 snaps: aws-cli/2.0:x-aws;aws-cli-compat/0.1:x-aws
 with: x-aws
-
 Command 'x-aws' not found, but can be installed with:
-
 sudo snap install aws-cli         # version 2.0, or
 sudo snap install aws-cli-compat  # version 0.1
 sudo apt  install aws             # version 1.0
-
 See 'snap info <snapname>' for additional versions.
-
 """,
 """
 test: single advise deb
 debs: pylint/1.0:x-pylint
 with: x-pylint
-
 Command 'x-pylint' not found, but can be installed with:
-
 sudo apt install pylint
-
 """,
 """
 test: multi advise debs
 debs: vim/1.0:x-vi;neovim/2.0:x-vi
 with: x-vi
-
 Command 'x-vi' not found, but can be installed with:
-
 sudo apt install vim     # version 1.0, or
 sudo apt install neovim  # version 2.0
-
 """,
 """
 test: fuzzy advise debs only
 debs: vim/1.0:x-vi;neovim/2.0:x-vi
 with: x-via
-
 Command 'x-via' not found, did you mean:
-
   command 'x-vi' from deb vim (1.0)
   command 'x-vi' from deb neovim (2.0)
-
 Try: sudo apt install <deb name>
-
 """,
 """
 test: single advise snaps
 snaps: spotify/1.0:x-spotify
 with: x-spotify
-
 Command 'x-spotify' not found, but can be installed with:
-
 sudo snap install spotify
-
 """,
 """
 test: multi advise snaps
 snaps: foo1/1.0:x-foo;foo2/2.0:x-foo
 with: x-foo
-
 Command 'x-foo' not found, but can be installed with:
-
 sudo snap install foo1  # version 1.0, or
 sudo snap install foo2  # version 2.0
-
 See 'snap info <snapname>' for additional versions.
-
 """,
 """
 test: mixed fuzzy advise
 debs: aws/1.0:x-aws,other-cmd
 snaps: aws-cli/2.0:x-aws
 with: x-awsX
-
 Command 'x-awsX' not found, did you mean:
-
   command 'x-aws' from snap aws-cli (2.0)
   command 'x-aws' from deb aws (1.0)
-
 See 'snap info <snapname>' for additional versions.
-
 """,
 """
 test: many mispellings just prints a summary
 debs: lsa/1.0:lsa;lsb/1.0:lsb;lsc/1.0:lsc;lsd/1.0:lsd;lsd/1.0:lsd;lse/1.0:lse;lsf/1.0:lsf;lsg/1.0:lsg;lse/1.0:lsh;lse/1.0:lsh;lsi/1.0:lsi;lsj/1.0:lsj;lsk/1.0:lsk;lsl/1.0:lsl;lsm/1.0:lsm;lsn/1.0:lsn;lso/1.0:lso
 with: lsx
-
 Command 'lsx' not found, but there are 17 similar ones.
-
 """,
 ]
         
@@ -147,6 +114,7 @@ class CommandNotFoundOutputTest(unittest.TestCase):
 
     def setUp(self):
         self.tmpdir = tempfile.mkdtemp()
+        self.mock_db()
         self.cnf = CommandNotFound()
         self.cnf.snap_cmd = os.path.join(self.tmpdir, "mock-snap-cmd-%i")
         # FIXME: add this to the test spec to test the outputs for uid=0/1000
@@ -156,6 +124,16 @@ class CommandNotFoundOutputTest(unittest.TestCase):
 
     def tearDown(self):
         shutil.rmtree(self.tmpdir)
+
+    def mock_db(self):
+        """Create an empty database and point c-n-f to it."""
+        self.tmpdir = tempfile.mkdtemp()
+        mock_commands_file = os.path.join(self.tmpdir, "Commands-all")
+        with open(mock_commands_file, "w"):
+            pass
+        col = DbCreator([mock_commands_file])
+        col.create(os.path.join(self.tmpdir, "test.db"))
+        CommandNotFound_Module.dbpath = os.path.join(self.tmpdir, "test.db")
 
     def set_mock_snap_cmd_json(self, json):
         with open(self.cnf.snap_cmd, "w") as fp:

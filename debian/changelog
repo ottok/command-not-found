@@ -1,3 +1,63 @@
+command-not-found (20.10.1) groovy; urgency=medium
+
+  * Avoid crash if tmpdb is locked. Skip execution and let the other process
+    do its job. (LP: #1875760)
+
+ -- Lukas Märdian <lukas.maerdian@canonical.com>  Mon, 03 Aug 2020 13:06:59 +0200
+
+command-not-found (20.10.0) groovy; urgency=medium
+
+  * zsh: Do not pass --no-failure-msg, non-existing commands were not getting
+    any output at all (LP: #1766068) (Closes: #927876)
+
+ -- Julian Andres Klode <juliank@ubuntu.com>  Mon, 01 Jun 2020 13:44:25 +0200
+
+command-not-found (20.04.3) groovy; urgency=medium
+
+  * Condense all output, drop all empty new lines. LP: #1875501
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 27 May 2020 10:50:21 +0100
+
+command-not-found (20.04.2) focal; urgency=medium
+
+  * Having a command in quotes with a space after it isn't very tasteful.
+
+ -- Brian Murray <brian@ubuntu.com>  Mon, 06 Apr 2020 12:52:58 -0700
+
+command-not-found (20.04.1) focal; urgency=medium
+
+  * Special case python -> python3, with extra advert of
+    python-is-python3.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 27 Mar 2020 11:01:51 +0000
+
+command-not-found (20.04.0) focal; urgency=medium
+
+  * Special case python -> python3, using existing translated strings. LP:
+    #1306682, LP: #1863532
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 12 Mar 2020 13:10:32 +0000
+
+command-not-found (19.10.0) eoan; urgency=medium
+
+  * If the database is absent, do not crash with a backtrace, but tell the
+    user to run apt update.
+  * Remove the command-not-found-data package (LP: #1844651)
+
+ -- Julian Andres Klode <juliank@ubuntu.com>  Mon, 07 Oct 2019 17:08:21 +0200
+
+command-not-found (18.10.0~pre2) cosmic; urgency=medium
+
+  * Update data for state as of release.  LP: #1802462.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 09 Nov 2018 12:17:44 -0800
+
+command-not-found (18.10.0~pre1) cosmic; urgency=medium
+
+  * first cosmic build
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 07 May 2018 07:35:23 +0200
+
 command-not-found (18.04.5) bionic; urgency=medium
 
   * Ensure /snap/bin is in PATH when checking for commands

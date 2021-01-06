@@ -23,19 +23,11 @@ Description: Suggest installation of packages in interactive bash sessions
  This package will install a handler for command_not_found that looks up
  programs not currently installed but available from the repositories.
 
-Package: command-not-found-data
-Architecture: any
-Depends: ${misc:Depends}
-Description: Set of data files for command-not-found.
- This package provides the required data used by the command-not-found
- application.
-
 Package: python3-commandnotfound
 Section: python
 Architecture: all
 Replaces: command-not-found (<< 0.3ubuntu7)
-Depends: command-not-found-data (= ${binary:Version}),
-         lsb-release,
+Depends: lsb-release,
          python3-apt,
          python3-gdbm,
          ${misc:Depends},

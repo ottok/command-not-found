@@ -51,9 +51,7 @@ def user_can_sudo():
 
 # the new style DB - if that exists we skip the legacy DB 
 dbpath = "/var/lib/command-not-found/commands.db"
-# the legacy DB shipped in the command-not-found-data package
-legacy_db = "/usr/share/command-not-found/commands.db"
-        
+
 
 class CommandNotFound(object):
 
@@ -79,8 +77,8 @@ class CommandNotFound(object):
         # a new style DB means we can skip loading the old legacy static DB
         if os.path.exists(dbpath):
             self.db = SqliteDatabase(dbpath)
-        elif os.path.exists(legacy_db):
-            self.db = SqliteDatabase(legacy_db)
+        else:
+            raise FileNotFoundError("Cannot find database")
         self.user_can_sudo = user_can_sudo()
         self.euid = posix.geteuid()
 
@@ -176,15 +174,11 @@ class CommandNotFound(object):
     def print_spelling_suggestions(self, word, mispell_packages, mispell_snaps, max_alt=15):
         """ print spelling suggestions for packages and snaps """
         if len(mispell_packages)+len(mispell_snaps) > max_alt:
-            print("", file=self.output_fd)
             print(_("Command '%s' not found, but there are %s similar ones.") % (word, len(mispell_packages)), file=self.output_fd)
-            print("", file=self.output_fd)
             self.output_fd.flush()
             return
         elif len(mispell_packages)+len(mispell_snaps) > 0:
-            print("", file=self.output_fd)
             print(_("Command '%s' not found, did you mean:") % word, file=self.output_fd)
-            print("", file=self.output_fd)
             for (command, snap, ver) in mispell_snaps:
                 if ver:
                     ver = " (%s)" % ver
@@ -197,7 +191,6 @@ class CommandNotFound(object):
                 else:
                     ver = ""
                 print(_("  command '%s' from deb %s%s") % (command, package, ver), file=self.output_fd)
-        print("", file=self.output_fd)
         if len(mispell_snaps) > 0:
             print(_("See 'snap info <snapname>' for additional versions."), file=self.output_fd)
         elif len(mispell_packages) > 0:
@@ -205,14 +198,11 @@ class CommandNotFound(object):
                 print(_("Try: %s <deb name>") % "sudo apt install", file=self.output_fd)
             else:
                 print(_("Try: %s <deb name>") % "apt install", file=self.output_fd)
-        print("", file=self.output_fd)
         self.output_fd.flush()
 
     def _print_exact_header(self, command):
-        print(file=self.output_fd)
         print(_("Command '%(command)s' not found, but can be installed with:") % {
             'command': command}, file=self.output_fd)
-        print(file=self.output_fd)
 
     def advice_single_snap_package(self, command, packages, snaps):
         self._print_exact_header(command)
@@ -224,7 +214,6 @@ class CommandNotFound(object):
         else:
             print("snap install %s" % snap[0], file=self.output_fd)
             print(_("Please ask your administrator."))
-        print("", file=self.output_fd)                    
         self.output_fd.flush()
         
     def advice_single_deb_package(self, command, packages, snaps):
@@ -240,7 +229,6 @@ class CommandNotFound(object):
             print(_("Please ask your administrator."))
             if not packages[0][2] in self.sources_list:
                 print(_("You will have to enable the component called '%s'") % packages[0][2], file=self.output_fd)
-        print("", file=self.output_fd)                    
         self.output_fd.flush()
 
     def sudo(self):
@@ -263,9 +251,7 @@ class CommandNotFound(object):
             else:
                 print("%sapt install %-*s%s" % (self.sudo(), pad, package[0], ver) + " (" + _("You will have to enable component called '%s'") % package[2] + ")", file=self.output_fd)
         if self.euid != 0 and not self.user_can_sudo:
-            print("", file=self.output_fd)
             print(_("Ask your administrator to install one of them."), file=self.output_fd)
-        print("", file=self.output_fd)
         self.output_fd.flush()
 
     def advice_multi_snap_packages(self, command, packages, snaps):
@@ -279,9 +265,7 @@ class CommandNotFound(object):
                 else:
                     ver = "  # version %s" % snap[2]
             print("%ssnap install %-*s%s" % (self.sudo(), pad, snap[0], ver), file=self.output_fd)
-        print("", file=self.output_fd)
         print(_("See 'snap info <snapname>' for additional versions."), file=self.output_fd)
-        print("", file=self.output_fd)
         self.output_fd.flush()
 
     def advice_multi_mixed_packages(self, command, packages, snaps):
@@ -300,12 +284,10 @@ class CommandNotFound(object):
             if package[1]:
                 ver = "  # version %s" % package[1]
             print("%sapt  install %-*s%s" % (self.sudo(), pad, package[0], ver), file=self.output_fd)
-        print("", file=self.output_fd)
         if len(snaps) == 1:
             print(_("See 'snap info %s' for additional versions.") % snaps[0][0], file=self.output_fd)
         else:
             print(_("See 'snap info <snapname>' for additional versions."), file=self.output_fd)
-        print("", file=self.output_fd)
         self.output_fd.flush()
         
     def advise(self, command, ignore_installed=False):
@@ -349,6 +331,16 @@ class CommandNotFound(object):
 
         if command in self.getBlacklist():
             return False
+
+        # python is special, on 20.04 and newer we should encourage
+        # people to use python3 only, and command-not-found depends on
+        # python3, so must be available
+        if command == "python":
+            print(_("Command '%s' not found, did you mean:") % command, file=self.output_fd)
+            print(_("  command '%s' from deb %s%s") % ("python3", "python3", ""), file=self.output_fd)
+            print(_("  command '%s' from deb %s%s") % ("python", "python-is-python3", ""), file=self.output_fd)
+            return True
+        
         packages = self.get_packages(command)
         snaps, mispell_snaps = self.get_snaps(command)
         logging.debug("got debs: %s snaps: %s" % (packages, snaps))
@@ -366,14 +358,6 @@ class CommandNotFound(object):
             self.advice_multi_deb_package(command, packages, snaps)
         elif len(packages) > 0 and len(snaps) > 0:
             self.advice_multi_mixed_packages(command, packages, snaps)
-
-        # python is special, on 18.04 and newer python2 is no longer installed
-        # which means there is no "python" binary. However python3 is installed
-        # by default. So in addition to the advise how to install it from the
-        # repo also add information that python3 is already installed.
-        if command == "python" and os.path.exists("/usr/bin/python3"):
-            print("You also have python3 installed, you can run 'python3' instead.")
-            print("")
 
         return (len(packages) > 0 or len(snaps) > 0 or
                 len(mispell_snaps) > 0 or len(mispell_packages) > 0)
