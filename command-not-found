@@ -86,7 +86,12 @@ def main():
                       help=_("don't print '<command-name>: command not found'"))
     (options, args) = parser.parse_args()
     if len(args) == 1:
-        cnf = CommandNotFound.CommandNotFound(options.data_dir)
+        try:
+            cnf = CommandNotFound.CommandNotFound(options.data_dir)
+        except FileNotFoundError:
+            print(_("Could not find command-not-found database. Run 'sudo apt update' to populate it."), file=sys.stderr)
+            print(_("%s: command not found") % args[0], file=sys.stderr)
+            return
         if not cnf.advise(args[0], options.ignore_installed) and not options.no_failure_msg:
             print(_("%s: command not found") % args[0], file=sys.stderr)
 

@@ -5,9 +5,20 @@ export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/command-not-found/ --instal
 %:
 	dh $@ --with=python3 --buildsystem=pybuild
 
+<<<<<<< HEAD
 override_dh_auto_install:
 	dh_auto_install
 	find debian/command-not-found -name __pycache__ | xargs rm -r
+=======
+override_dh_install: 
+	dh_install
+ifneq (,$(filter command-not-found,$(shell dh_listpackages)))
+	# Move our script from /usr/bin to /usr/lib (not meant for end-users)
+	install -d $(CURDIR)/debian/command-not-found/usr/lib
+	mv $(CURDIR)/debian/command-not-found/usr/bin/command-not-found $(CURDIR)/debian/command-not-found/usr/lib/command-not-found
+	mv $(CURDIR)/debian/command-not-found/usr/bin/cnf-update-db $(CURDIR)/debian/command-not-found/usr/lib/cnf-update-db
+	rmdir --ignore-fail-on-non-empty $(CURDIR)/debian/command-not-found/usr/bin
+>>>>>>> upstream/20.10.1
 	# Get rid of bash integration script, got merged to bash
 	rm $(CURDIR)/debian/command-not-found/etc/bash_command_not_found
 

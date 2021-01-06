@@ -89,8 +89,19 @@ class DbCreator:
             return
         tmpdb = dbname+".tmp"
         with sqlite3.connect(tmpdb) as con:
-            con.executescript(create_db_sql)
-            self._fill_commands(con)
+            try:
+                con.executescript(create_db_sql)
+                self._fill_commands(con)
+            except sqlite3.OperationalError as e:
+                # There might be a parallel cnf-update-db process, updating the
+                # tmpdb. Just stop execution in this case, as the other process
+                # should produce the correct result.
+                if str(e) == "database is locked":
+                    logging.warning(
+                        "%s is locked by another process. Ignoring.", tmpdb)
+                    sys.exit(0)
+                else:
+                    raise e
         # remove now stale metadata
         rm_f(metadata_file)
         # put database in place
