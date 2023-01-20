@@ -1,3 +1,12 @@
+command-not-found (23.04.0) lunar; urgency=medium
+
+  * Add support for deb822 sources in python-apt > 2.5.1
+  * Handle unknown components in db creator (Closes: #968757)
+  * Recognize non-free-firmware in the db creator
+  * Update translations from launchpad
+
+ -- Julian Andres Klode <juliank@ubuntu.com>  Fri, 20 Jan 2023 14:39:07 +0100
+
 command-not-found (22.04.0) jammy; urgency=medium
 
   [ Arnaud Rebillout ]

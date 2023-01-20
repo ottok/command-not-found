@@ -1,15 +1,17 @@
-# Copyright (C) 2005, Zygmunt Krynicki
+# Persian translation for command-not-found
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the command-not-found package.
-# Zygmunt Krynicki <zkrynicki@gmail.com>, 2005
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: command-not-found 0.1\n"
+"Project-Id-Version: command-not-found\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-20 14:38+0100\n"
-"PO-Revision-Date: 2021-01-06 21:52+0000\n"
-"Last-Translator: Marek Adamski <Unknown>\n"
-"Language-Team: Polish <LL@li.org>\n"
-"Language: pl\n"
+"PO-Revision-Date: 2020-12-23 16:24+0000\n"
+"Last-Translator: Danial Behzadi <danialbehzadi@riseup.net>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,87 +20,85 @@ msgstr ""
 
 #: ../CommandNotFound/CommandNotFound.py:160
 msgid "Do you want to install it? (N/y)"
-msgstr "Czy chcesz zainstalować? (N/t)"
+msgstr "می‌خواهید نصبش کنید؟ (N/y)"
 
 #: ../CommandNotFound/CommandNotFound.py:169
 msgid "y"
-msgstr "t"
+msgstr "y"
 
 #: ../CommandNotFound/CommandNotFound.py:181
 #, python-format
 msgid "Command '%s' not found, but there are %s similar ones."
-msgstr "Nie znaleziono polecenia '%s', ale istnieje %s podobnych."
+msgstr "دستور '%s' پیدا نشد، ولی %s دستور مشابه وجود دارد."
 
 #: ../CommandNotFound/CommandNotFound.py:185
 #: ../CommandNotFound/CommandNotFound.py:343
 #, python-format
 msgid "Command '%s' not found, did you mean:"
-msgstr "Nie znaleziono polecenia '%s', czy chodziło o:"
+msgstr "دستور '%s' پیدا نشد. منظورتان این‌ بود:"
 
 #: ../CommandNotFound/CommandNotFound.py:191
 #, python-format
 msgid "  command '%s' from snap %s%s"
-msgstr "  polecenie '%s' ze snapa %s%s"
+msgstr "  دستور '%s' از اسنپ %s%s"
 
 #: ../CommandNotFound/CommandNotFound.py:197
 #: ../CommandNotFound/CommandNotFound.py:344
 #: ../CommandNotFound/CommandNotFound.py:345
 #, python-format
 msgid "  command '%s' from deb %s%s"
-msgstr "  polecenie '%s' z pakietu deb %s%s"
+msgstr "  دستور '%s' از بسته %s%s"
 
 #: ../CommandNotFound/CommandNotFound.py:199
 #: ../CommandNotFound/CommandNotFound.py:272
 #: ../CommandNotFound/CommandNotFound.py:294
 msgid "See 'snap info <snapname>' for additional versions."
-msgstr "Zobacz 'snap info <nazwasnapa>' dla dodatkowych wersji."
+msgstr "برای نگارش‌های بیش‌تر '‪snap info <snapname>‬' را ببینید"
 
 #: ../CommandNotFound/CommandNotFound.py:202
 #: ../CommandNotFound/CommandNotFound.py:204
 #, python-format
 msgid "Try: %s <deb name>"
-msgstr "Wypróbuj: %s <nazwa pakietu deb>"
+msgstr "امتحان کنید: %s <نام بسته>"
 
 #: ../CommandNotFound/CommandNotFound.py:208
 #, python-format
 msgid "Command '%(command)s' not found, but can be installed with:"
-msgstr ""
-"Polecenie '%(command)s' nie zostało znalezione, ale można je zainstalować za "
-"pomocą:"
+msgstr "‫دستور '%(command)s' پیدا نشد، ولی با این دستور قابل نصب است:"
 
 #: ../CommandNotFound/CommandNotFound.py:220
 #: ../CommandNotFound/CommandNotFound.py:233
 msgid "Please ask your administrator."
-msgstr "Proszę zapytać swojego administratora."
+msgstr "از مدیرتان بخواهید."
 
 #: ../CommandNotFound/CommandNotFound.py:235
 #, python-format
 msgid "You will have to enable the component called '%s'"
-msgstr "Wymagane będzie uruchomienie komponentu '%s'"
+msgstr "شما باید قسمتی با نام '%s' را فعال کنید"
 
 #: ../CommandNotFound/CommandNotFound.py:256
 #, python-format
 msgid "You will have to enable component called '%s'"
-msgstr "Trzeba będzie aktywować komponent '%s'"
+msgstr "شما باید قسمت '%s' را فعال کنید"
 
 #: ../CommandNotFound/CommandNotFound.py:258
 msgid "Ask your administrator to install one of them."
-msgstr "Poproś swojego administratora o zainstalowanie jednego z nich."
+msgstr "از مدیرتان بخواهید یکی از آنها را را نصب کند."
 
 #: ../CommandNotFound/CommandNotFound.py:292
 #, python-format
 msgid "See 'snap info %s' for additional versions."
-msgstr "Zobacz 'snap info %s' dla dodatkowych wersji."
+msgstr "برای نسخه های دیگر به 'snap info %s' نگاه کنید."
 
 #: ../CommandNotFound/CommandNotFound.py:318
 #, python-format
 msgid "Command '%(command)s' is available in '%(place)s'"
-msgstr "Polecenie '%(command)s' jest dostępne w '%(place)s'"
+msgstr "دستور '%(command)s' در '%(place)s' در دسترس است"
 
 #: ../CommandNotFound/CommandNotFound.py:320
 #, python-format
 msgid "Command '%(command)s' is available in the following places"
-msgstr "Polecenie '%(command)s' jest dostępne w następujących miejscach"
+msgstr "دستور '%(command)s' در مکان های زیر در دسترس است"
 
 #: ../CommandNotFound/CommandNotFound.py:325
 #, python-format
@@ -106,67 +106,65 @@ msgid ""
 "The command could not be located because '%s' is not included in the PATH "
 "environment variable."
 msgstr ""
-"Polecenie nie zostało odnalezione gdyż '%s' nie jest umieszczone w zmiennej "
-"środowiska PATH."
+"مکان دستور نمی تواند پیدا شود، زیرا '%s' در متغیر محیطی PATH موجود نیست."
 
 #: ../CommandNotFound/CommandNotFound.py:327
 msgid ""
 "This is most likely caused by the lack of administrative privileges "
 "associated with your user account."
 msgstr ""
-"Jest to najprawdopodobniej spowodowane przez brak uprawnień "
-"administracyjnych połączonych z Twoim kontem użytkownika."
+"این امر به احتمال زیاد به دلیل کمبود امتیازات مدیریتی مرتبط با حساب کاربری "
+"شما ایجاد شده است."
 
 #: ../command-not-found:77
 #, c-format
 msgid "%prog [options] <command-name>"
-msgstr "%prog [opcje] <polecenie>"
+msgstr "%prog [options] <command-name>"
 
 #: ../command-not-found:80
 msgid "use this path to locate data fields"
-msgstr "użyj tej ścieżki aby zlokalizowac pliki z danymi"
+msgstr "از این مسیر برای تعیین مکان فیلدهای داده استفاده کنید"
 
 #: ../command-not-found:83
 msgid "ignore local binaries and display the available packages"
-msgstr "ignorowanie danych lokalnych i pokazanie dostępnych pakietów"
+msgstr "باینری های محلی را نادیده بگیرید و بسته های موجود را نمایش دهید"
 
 #: ../command-not-found:86
 msgid "don't print '<command-name>: command not found'"
-msgstr "nie wyświetlaj '<nazwa-polecenia>: polecenia nie odnaleziono'"
+msgstr "چاپ نکن: '<command-name>: دستور پیدا نشد'"
 
 #: ../command-not-found:92
 msgid ""
 "Could not find command-not-found database. Run 'sudo apt update' to populate "
 "it."
 msgstr ""
-"Nie udało się znaleźć bazy danych command-not-found. Uruchom 'sudo apt "
-"update', aby ją wypełnić."
+"پایگاه داده \"دستور-پیدا-نشد\"وجود ندارد. برای ایجاد آن، 'sudo apt update' "
+"را اجرا کنید."
 
 #: ../command-not-found:93 ../command-not-found:96
 #, c-format
 msgid "%s: command not found"
-msgstr "%s: nie znaleziono polecenia"
+msgstr "%s: دستور پیدا نشد"
 
 #: ../CommandNotFound/util.py:25
 msgid "Sorry, command-not-found has crashed! Please file a bug report at:"
 msgstr ""
-"Przepraszamy, w programie command-not-found wystąpił błąd! Prosimy o "
-"zgłoszenie błędu na stronie:"
+"متاسفم، \"دستور-پیدا-نشد\" خراب شده! لطفا گزارش اشکال را در اینجا ثبت کنید:"
 
 #: ../CommandNotFound/util.py:27
 msgid "Please include the following information with the report:"
-msgstr "Załącz następujące informacje w Twoim zgłoszeniu:"
+msgstr "لطفا اطلاعات زیر را در گزارش درج کنید:"
 
 #: ../CommandNotFound/util.py:29
 #, python-format
 msgid "command-not-found version: %s"
-msgstr "command-not-found wersja: %s"
+msgstr "command-not-found نگارش: %s"
 
 #: ../CommandNotFound/util.py:30
 #, python-format
 msgid "Python version: %d.%d.%d %s %d"
-msgstr "Python wersja: %d.%d.%d %s %d"
+msgstr "نسخه پایتون: %d.%d.%d %s %d"
 
 #: ../CommandNotFound/util.py:36
 msgid "Exception information:"
-msgstr "Informacje o błędzie:"
+msgstr "اطلاعات استثنا:"

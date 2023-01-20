@@ -1,0 +1,169 @@
+# Mon translation for command-not-found
+# Copyright (c) 2019 Rosetta Contributors and Canonical Ltd 2019
+# This file is distributed under the same license as the command-not-found package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: command-not-found\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-20 14:38+0100\n"
+"PO-Revision-Date: 2019-11-06 12:08+0000\n"
+"Last-Translator: Tao Mon Lae <Unknown>\n"
+"Language-Team: Mon <mnw@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2023-01-20 13:36+0000\n"
+"X-Generator: Launchpad (build e04feada4865d7ca041d8edeee137fe87b5bcb3e)\n"
+
+#: ../CommandNotFound/CommandNotFound.py:160
+msgid "Do you want to install it? (N/y)"
+msgstr "မၞးမိက်ဂွံပ္တိုန်စုတ်ညအ်ဟာ။ (ယွံ/ဟအှ်ေ)"
+
+#: ../CommandNotFound/CommandNotFound.py:169
+msgid "y"
+msgstr "y"
+
+#: ../CommandNotFound/CommandNotFound.py:181
+#, python-format
+msgid "Command '%s' not found, but there are %s similar ones."
+msgstr "အမိၚ်ကဵုလဝ်ဂှ် '%s' ဟွံဆဵုရ။ ဆဂး %s တုပ်မံၚ်ဂှ် နွံမံၚ်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:185
+#: ../CommandNotFound/CommandNotFound.py:343
+#, python-format
+msgid "Command '%s' not found, did you mean:"
+msgstr "အမိၚ်ကဵုလဝ်ဂှ် '%s' ဟွံဆဵုရ။ မၞးမိက်ဂွံဟီုဂှ်:"
+
+#: ../CommandNotFound/CommandNotFound.py:191
+#, python-format
+msgid "  command '%s' from snap %s%s"
+msgstr "  အမိၚ်ကဵုလဝ်ဂှ် '%s' နူ snap %s%s"
+
+#: ../CommandNotFound/CommandNotFound.py:197
+#: ../CommandNotFound/CommandNotFound.py:344
+#: ../CommandNotFound/CommandNotFound.py:345
+#, python-format
+msgid "  command '%s' from deb %s%s"
+msgstr "  အမိၚ် '%s' နူ deb %s%s"
+
+#: ../CommandNotFound/CommandNotFound.py:199
+#: ../CommandNotFound/CommandNotFound.py:272
+#: ../CommandNotFound/CommandNotFound.py:294
+msgid "See 'snap info <snapname>' for additional versions."
+msgstr "သွက်ဗီုပြၚ် ထပ်ပံၚ်စုတ်လဝ်ဂမၠိုၚ်တအ်ဂှ် ကျောဝ်ရံၚ် ပ္ဍဲတၚ်နၚ် < > တေံညိ။"
+
+#: ../CommandNotFound/CommandNotFound.py:202
+#: ../CommandNotFound/CommandNotFound.py:204
+#, python-format
+msgid "Try: %s <deb name>"
+msgstr "ဆက်ဂစာန်အာ %s < > ဂမၠိုၚ်ညိ။"
+
+#: ../CommandNotFound/CommandNotFound.py:208
+#, python-format
+msgid "Command '%(command)s' not found, but can be installed with:"
+msgstr "အမိၚ် ကဵုလဝ် '%(command)s'  ဂှ် ဟွံဆဵုရ။ ဆဂး ကေုာံ        ဂှ်  ဗဂပ်စုတ်မာန်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:220
+#: ../CommandNotFound/CommandNotFound.py:233
+msgid "Please ask your administrator."
+msgstr "သ္ပဂုဏ်တုဲ သၟာန် ညးအုပ်ဓုပ်ညိ။"
+
+#: ../CommandNotFound/CommandNotFound.py:235
+#, python-format
+msgid "You will have to enable the component called '%s'"
+msgstr "မၞးဂှ် ဒှ်အထံက်အရီုကဵု အဝယ်လစှ်ေ ကော်ခဴစမ္ဂး '%s' မာန်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:256
+#, python-format
+msgid "You will have to enable component called '%s'"
+msgstr "မၞးဂှ် ဒှ်အထံက်အရီုကဵု အဝယ်လစှ်ေ ကော်ခဴစမ္ဂး '%s' မာန်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:258
+msgid "Ask your administrator to install one of them."
+msgstr "သွက်ဂွံ ဗဂပ်စုတ် မွဲဂှ် သၟာန် ညးအုပ်ဓုပ်မၞးညိ။"
+
+#: ../CommandNotFound/CommandNotFound.py:292
+#, python-format
+msgid "See 'snap info %s' for additional versions."
+msgstr "သွက် ဗီုပြၚ် ထပ်ပံၚ်စုတ်လဝ်တအ်ဂှ် 'snap info %s' ရံၚ်ညိ။"
+
+#: ../CommandNotFound/CommandNotFound.py:318
+#, python-format
+msgid "Command '%(command)s' is available in '%(place)s'"
+msgstr "အမိၚ် '%(command)s' က္ဍိုပ်ကၠံဂှ် ပ္ဍဲ '%(place)s\" ဂှ် ကလိဂွံမာန်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:320
+#, python-format
+msgid "Command '%(command)s' is available in the following places"
+msgstr "အမိၚ် '%(command)s' က္ဍိုပ်ကၠံဂှ် ပ္ဍဲဒၞဲါသၟဝ်ဏံဂှ် ကလိဂွံမာန်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:325
+#, python-format
+msgid ""
+"The command could not be located because '%s' is not included in the PATH "
+"environment variable."
+msgstr ""
+"အမိၚ် ကဵုလဝ်တအ်ဂှ် စွံပတန်ကဵုဟွံမာန်ရ။ မုဒှ်ရောမ္ဂး '%s\" ဂှ် ဟွံတၞီလုပ်လၟိဟ် ပ္ဍဲပွဳပွူ ဂၠံၚ်တရဴ ဆုဲကသဳ ပြံၚ်သၠာဲမာန်တအ်ရ။"
+
+#: ../CommandNotFound/CommandNotFound.py:327
+msgid ""
+"This is most likely caused by the lack of administrative privileges "
+"associated with your user account."
+msgstr ""
+"အရာဏံဂှ် ဗွဲမဂၠိုၚ် က္တဵုဒှ် တုပ်မံၚ် နကဵု တၚ်ဍိုန်လျ ပရေၚ်အုပ်ဓုပ် အခေါၚ်ရာတၟေၚ် မကောံကဠောံမံၚ် ကေုာံ အကံက်မၞးရ။"
+
+#: ../command-not-found:77
+#, c-format
+msgid "%prog [options] <command-name>"
+msgstr "ပရိုဝ်ဂရာမ် က္ဍိုပ်ကၠံ %prog [options] <command-name>"
+
+#: ../command-not-found:80
+msgid "use this path to locate data fields"
+msgstr "သွက်ဂွံဂၠဲါ ကဠာတၚ်နၚ်ဂမၠိုၚ်တအ်ဂှ် သုၚ်စောဲ နယ်ကယ်ဂၠံၚ်တရဴဏံညိ။"
+
+#: ../command-not-found:83
+msgid "ignore local binaries and display the available packages"
+msgstr "အရာဒၞဲါဒှ်မံၚ် ၂ တအ်ဂှ် သ္ပထောံမၛဟ်တုဲ ဒၞဲါ ပံက်ဂွံဂှ် ဆက်ပံက်အာညိ။"
+
+#: ../command-not-found:86
+msgid "don't print '<command-name>: command not found'"
+msgstr "လ္ပဍဵုပ္တိတ်ညိ။ '<command-name>: command not found' အမိၚ်ကဵုလဝ်ဂှ် ဟွံဆဵုရ။"
+
+#: ../command-not-found:92
+msgid ""
+"Could not find command-not-found database. Run 'sudo apt update' to populate "
+"it."
+msgstr ""
+"အမိၚ်ကဵုလဝ်ဂှ် ဂၠာဲဟွံဆဵုရ။ တၚ်ဂၞၚ်ဂိုၚ်စွံလဝ်ဂမၠိုၚ်တအ်ဂှ် ဟွံဆဵုရ။ သွက်ဂွံပလံၚ်ဗစိုပ်တၚ်နၚ်ဂှ် လုပ်ပံက်ကျောဝ် ပ္ဍဲ 'sudo apt "
+"update' တေံညိ။"
+
+#: ../command-not-found:93 ../command-not-found:96
+#, c-format
+msgid "%s: command not found"
+msgstr "%s: အမိၚ်ကဵုလဝ်ဂှ် ဂၠာဲဟွံဆဵုရ။"
+
+#: ../CommandNotFound/util.py:25
+msgid "Sorry, command-not-found has crashed! Please file a bug report at:"
+msgstr ""
+"သၠးအခေါၚ်ညိ။ အမိၚ်ဂၠာဲဟွံဆဵုလဝ်တအ်ဂှ် လီုအာအိုတ်ရောၚ်။ သ္ပဂုဏ်တုဲ ကဠာဒးလဝ်ဘဲ ဒးလီုလဝ်တအ်ဂှ် ဒုၚ်စဳရေၚ် ပ္ဍဲ တေံညိ။"
+
+#: ../CommandNotFound/util.py:27
+msgid "Please include the following information with the report:"
+msgstr "သ္ပဂုဏ်တုဲ ပ္ဍဲလိက်ဒုၚ်စဳရေၚ်ဂှ် ထပ်ပံၚ်စုတ် တၚ်နၚ်သၟဝ်ဂမၠိုၚ်ညိ။"
+
+#: ../CommandNotFound/util.py:29
+#, python-format
+msgid "command-not-found version: %s"
+msgstr "ပ္ဍဲဗီုပြၚ် %s ဂှ် အမိၚ်ကဵုလဝ်တအ်ဂှ် ဟွံဆဵုရ။"
+
+#: ../CommandNotFound/util.py:30
+#, python-format
+msgid "Python version: %d.%d.%d %s %d"
+msgstr "ဗီုပြၚ် ကၠန်: %d.%d.%d %s %d"
+
+#: ../CommandNotFound/util.py:36
+msgid "Exception information:"
+msgstr "တၚ်နၚ် စၟဳစဂမၠိုၚ်"
