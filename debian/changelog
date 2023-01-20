@@ -1,3 +1,14 @@
+command-not-found (23.04.0-1) unstable; urgency=medium
+
+  * New upstream version 23.04.0
+  * Drop 0003-cnf-update-db-Add-support-for-Contents-files.patch, merged
+    upstream, add use-contents.patch instead to enable it.
+  * debian/watch: Point at xz tarball
+  * debian/tests: Add adduser dependency, fix test to not assume vim-tiny
+    matches for vim.
+
+ -- Julian Andres Klode <juliank@ubuntu.com>  Fri, 20 Jan 2023 14:57:40 +0100
+
 command-not-found (23.04.0) lunar; urgency=medium
 
   * Add support for deb822 sources in python-apt > 2.5.1
