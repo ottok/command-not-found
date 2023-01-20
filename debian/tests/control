@@ -1,4 +1,4 @@
 Tests: smoke
 Restrictions: needs-root
-Depends: command-not-found
+Depends: command-not-found, adduser
 

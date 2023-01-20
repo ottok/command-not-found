@@ -10,7 +10,7 @@ apt-get update
 
 echo "Ensure we have results from c-n-f"
 /usr/lib/command-not-found --ignore-installed vim 2>&1 | grep vim
-/usr/lib/command-not-found --ignore-installed vim 2>&1 | grep vim-tiny
+/usr/lib/command-not-found --ignore-installed vim 2>&1 | grep "command '.*' from deb "
 
 
 echo "Add testuser"
