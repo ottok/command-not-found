@@ -1,0 +1,20 @@
+From: Julian Andres Klode <jak@debian.org>
+Date: Fri, 20 Jan 2023 15:05:13 +0100
+Subject: Use Contents files to get package names
+
+---
+ data/50command-not-found | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/data/50command-not-found b/data/50command-not-found
+index 320662b..0a02f59 100644
+--- a/data/50command-not-found
++++ b/data/50command-not-found
+@@ -7,6 +7,7 @@ Acquire::IndexTargets {
+         MetaKey "$(COMPONENT)/cnf/Commands-$(NATIVE_ARCHITECTURE)";
+         ShortDescription "Commands-$(NATIVE_ARCHITECTURE)";
+         Description "$(RELEASE)/$(COMPONENT) $(NATIVE_ARCHITECTURE) c-n-f Metadata";
++        DefaultEnabled "no";
+     };
+ };
+ 
