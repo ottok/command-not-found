@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import sqlite3
+import subprocess
 import sys
 import time
 
@@ -134,8 +135,15 @@ class DbCreator:
         return meta
     def _fill_commands(self, con):
         for f in self.files:
-            with open(f) as fp:
-                self._parse_single_commands_file(con, fp)
+            with subprocess.Popen(["/usr/lib/apt/apt-helper", "cat-file", f], stdout=subprocess.PIPE) as sub:
+                if "Contents" in f:
+                    self._parse_single_contents_file(con, f, sub.stdout)
+                else:
+                    self._parse_single_commands_file(con, sub.stdout)
+                if sub.wait() != 0:
+                    raise subprocess.CalledProcessError(returncode=sub.returncode,
+                                                         cmd="/usr/lib/apt/apt-helper cat-file {}".format(f))
+
         self.stats["total_time"] = time.time() - self.stats["total_time"]
         logging.info("processed %i packages in %.2fs" % (
             self.stats["total"], self.stats["total_time"]))
@@ -219,6 +227,60 @@ class DbCreator:
                 if not pkg_id:
                     priority = component_priorities[component]
                     priority += int(tagf.section.get("priority-bonus", "0"))
+                    with measure("sql_insert_pkg", self.stats):
+                        pkg_id = self._insert_package(con, pkgname, version, component, priority)
+                with measure("sql_insert_cmd", self.stats):
+                    self._insert_command(con, command, pkg_id)
+
+    def _parse_single_contents_file(self, con, f, fp):
+        # read header
+        suite=None      # FIXME
+
+        for l in fp:
+            l = l.decode("utf-8")
+            if not (l.startswith('usr/sbin') or l.startswith('usr/bin') or
+                    l.startswith('bin') or l.startswith('sbin')):
+                continue
+            try:
+                command, pkgnames = l.split(None, 1)
+            except ValueError:
+                continue
+
+            command = os.path.basename(command)
+
+            for pkgname in pkgnames.split(','):
+                try:
+                    section, pkgname = pkgname.strip().rsplit('/', 1)
+                except ValueError:
+                    pkgname = pkgname.strip()
+                    section = "unknown"
+                if len(section.split('/')) == 2:
+                    component, section = section.split('/')
+                else:
+                    component = 'main'
+
+                # FIXME - Don't really know how.
+                version = None
+                # see if we have the command already
+                with measure("sql_already_db", self.stats):
+                    already_in_db=self._in_db(con, command, pkgname)
+                if already_in_db:
+                    # we found a version that is higher what we have
+                    # in the DB -> remove current, insert higher
+                    if False and apt_pkg.version_compare(version, already_in_db[2]) > 0:
+                        logging.debug("replacing exiting %s in DB (higher version)" % command)
+                        with measure("sql_delete_already_in_db", self.stats):
+                            self._delete_pkgid(con, already_in_db[0])
+                    else:
+                        logging.debug("skipping %s from %s (lower/same version)" % (command, suite))
+                        continue
+                logging.debug("adding %s from %s/%s (%s)" % (
+                    command, pkgname, version, suite))
+                # insert new data
+                with measure("sql_have_pkg", self.stats):
+                    pkg_id = self._get_pkgid(con, pkgname)
+                if not pkg_id:
+                    priority = component_priorities[component]
                     with measure("sql_insert_pkg", self.stats):
                         pkg_id = self._insert_package(con, pkgname, version, component, priority)
                 with measure("sql_insert_cmd", self.stats):

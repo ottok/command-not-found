@@ -1,3 +1,31 @@
+command-not-found (22.04.0) jammy; urgency=medium
+
+  [ Arnaud Rebillout ]
+  * cnf: Bail out early if the database is not readable
+  * cnf-update-db: Creates a world-readable database (Closes: #986461)
+  * Add test to make sure that the database is world-readable
+
+  [ Julian Andres Klode ]
+  * cnf-update-db: Add support for Contents files
+  * Suggest apt update if no commands file could be found (Closes: #857090)
+  * Packaging update:
+    - Point Vcs-Git to the git-ubuntu repo
+    - Upgrade to debhelper-compat (= 11)
+    - Update debian/copyright from debian
+    - changelog: Trim trailing spaces and fix syntax error
+    - Remove empty postinst script
+    - Drop obsolete X-Python3-Version field
+    - Bump Standards-Version to 4.6.0
+    - Add debian/source/format: 3.0 (native)
+
+ -- Julian Andres Klode <juliank@ubuntu.com>  Wed, 08 Dec 2021 11:53:19 +0100
+
+command-not-found (21.10.0) impish; urgency=medium
+
+  * Correctly handle compressed APT index files (LP: #1876034)
+
+ -- Julian Andres Klode <juliank@ubuntu.com>  Thu, 23 Sep 2021 15:32:30 +0200
+
 command-not-found (20.10.1-1) unstable; urgency=medium
 
   * Trim trailing whitespace.
@@ -575,7 +603,6 @@ command-not-found (0.2.41ubuntu6) UNRELEASED; urgency=low
 
   * merged lp:~julien-nicoulaud/command-not-found/fix-zsh-hook,
     many thanks to Julien Nicoulaud (LP: #624565)
-ents
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 15 Aug 2011 16:56:18 +0200
 

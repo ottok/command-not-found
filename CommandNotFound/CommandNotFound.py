@@ -75,7 +75,7 @@ class CommandNotFound(object):
     def __init__(self, data_dir="/usr/share/command-not-found"):
         self.sources_list = self._getSourcesList()
         # a new style DB means we can skip loading the old legacy static DB
-        if os.path.exists(dbpath):
+        if os.path.exists(dbpath) and os.access(dbpath, os.R_OK):
             self.db = SqliteDatabase(dbpath)
         else:
             raise FileNotFoundError("Cannot find database")
