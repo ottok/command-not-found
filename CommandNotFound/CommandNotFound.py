@@ -143,7 +143,11 @@ class CommandNotFound(object):
         # The matcher parses info files from
         # /usr/share/python-apt/templates/
         # But we don't use the calculated data, skip it
-        for source in SourcesList(withMatcher=False):
+        try:
+            sources = SourcesList(withMatcher=False, deb822=True)
+        except TypeError:
+            sources = SourcesList(withMatcher=False)
+        for source in sources:
             if not source.disabled and not source.invalid:
                 for component in source.comps:
                     sources_list.add(component)

@@ -20,6 +20,7 @@ component_priorities = {
     'main': 120,
     'universe': 100,
     'contrib': 80,
+    'non-free-firmware': 60,
     'restricted': 60,
     'non-free': 40,
     'multiverse': 20,
@@ -225,7 +226,7 @@ class DbCreator:
                 with measure("sql_have_pkg", self.stats):
                     pkg_id = self._get_pkgid(con, pkgname)
                 if not pkg_id:
-                    priority = component_priorities[component]
+                    priority = component_priorities.get(component, 0)
                     priority += int(tagf.section.get("priority-bonus", "0"))
                     with measure("sql_insert_pkg", self.stats):
                         pkg_id = self._insert_package(con, pkgname, version, component, priority)
@@ -280,7 +281,7 @@ class DbCreator:
                 with measure("sql_have_pkg", self.stats):
                     pkg_id = self._get_pkgid(con, pkgname)
                 if not pkg_id:
-                    priority = component_priorities[component]
+                    priority = component_priorities.get(component, 0)
                     with measure("sql_insert_pkg", self.stats):
                         pkg_id = self._insert_package(con, pkgname, version, component, priority)
                 with measure("sql_insert_cmd", self.stats):
