@@ -18,3 +18,8 @@ adduser --gecos="no" --disabled-password testuser
 
 echo "Ensure c-n-f works as user"
 su -l testuser -c "/usr/lib/command-not-found --ignore-installed konsole" 2>&1 | grep konsole
+
+echo "Ensure c-n-f database is world-readable"    # cf. #986461
+rm -f /var/lib/command-not-found/*
+(umask 0077 && /usr/lib/cnf-update-db)
+su -l testuser -c "/usr/lib/command-not-found --ignore-installed emacs" 2>&1 | grep emacs
