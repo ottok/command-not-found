@@ -10,8 +10,10 @@ apt-get update
 
 echo "Ensure we have results from c-n-f"
 /usr/lib/command-not-found --ignore-installed vim 2>&1 | grep vim
-/usr/lib/command-not-found --ignore-installed vim 2>&1 | grep "command '.*' from deb "
-
+# Accept two types of outputs depending on there are under or over 15 alternatives
+/usr/lib/command-not-found --ignore-installed vim 2>&1 | grep \
+    -e "command '.*' from deb " \
+    -e "Command 'vim' not found, but there are .* similar ones."
 
 echo "Add testuser"
 adduser --gecos="no" --disabled-password testuser
